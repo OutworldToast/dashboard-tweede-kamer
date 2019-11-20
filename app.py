@@ -162,7 +162,7 @@ server=app.server
 
 # html
 app.layout = html.Div(children=[
-    html.H1(children='Votes inside the Dutch Parliament',
+    html.H1(children='Stemmen in de Tweede Kamer',
             style={'width':'99%','height':30,'fontSize': 20,'color':'#FFFFFF',
             'paddingLeft':'1.5%','paddingTop':5,'backgroundColor':'#363880'}),
     
