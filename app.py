@@ -161,6 +161,7 @@ app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
 server=app.server
 
 # html
+app.title = "Dashboard Tweede Kamer"
 app.layout = html.Div(children=[
     html.H1(children='Stemmen in de Tweede Kamer',
             style={'width':'99%','height':30,'fontSize': 20,'color':'#FFFFFF',
