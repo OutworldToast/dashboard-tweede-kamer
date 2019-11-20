@@ -40,13 +40,13 @@ for t in topics:
     pvotes.append([parties[0],t,'tegen',0])
 
 #topic distribution
-tdist=pd.DataFrame(tdist,columns=['topic','aangenomen','verworpen'])
+tdist=pd.DataFrame(tdist,columns=['topic','adopted','rejected'])
 tdist=tdist.groupby('topic').sum().reset_index()
 
 fig_td=go.Figure(
     data=[
-        go.Bar(name='aangenomen', x=tdist['topic'], y=tdist['aangenomen'],base=0,marker_color='#87CE70'),
-        go.Bar(name='verworpen', x=tdist['topic'], y=-tdist['verworpen'],base=0,marker_color='#FFCC80')
+        go.Bar(name='adopted', x=tdist['topic'], y=tdist['adopted'],base=0,marker_color='#87CE70'),
+        go.Bar(name='rejected', x=tdist['topic'], y=-tdist['rejected'],base=0,marker_color='#FFCC80')
     ],
     layout=go.Layout(
         title=dict(text='Onderwerpen',x=0.5),
@@ -83,8 +83,8 @@ fig_PVs={}
 for t in topics:
     fig_PVs[t]=go.Figure(
         data=[
-            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'support'].values, name='voor',orientation='h',marker_color='#A6C4FE'),
-            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'against'].values, name='tegen', orientation='h',marker_color='#DDDDDD')],
+            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'support'].values, name='in favour of',orientation='h',marker_color='#A6C4FE'),
+            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'against'].values, name='against', orientation='h',marker_color='#DDDDDD')],
         layout=go.Layout(
             title=dict(text='Stemresultaat over '+ str(t)+' topic',x=0.5),
             xaxis=dict(title='aantal moties',tickformat='d'),
