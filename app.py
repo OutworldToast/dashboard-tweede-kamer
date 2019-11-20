@@ -45,8 +45,8 @@ tdist=tdist.groupby('topic').sum().reset_index()
 
 fig_td=go.Figure(
     data=[
-        go.Bar(name='aangenomen', x=tdist['topic'], y=tdist['aangenomen'],base=0,marker_color='#87CE70'),
-        go.Bar(name='verworpen', x=tdist['topic'], y=-tdist['verworpen'],base=0,marker_color='#FFCC80')
+        go.Bar(name='aangenomen', x=tdist['topic'], y=tdist['aangenomen'],base=0,marker_color='#7FDB60'),
+        go.Bar(name='verworpen', x=tdist['topic'], y=-tdist['verworpen'],base=0,marker_color='#FF6161')
     ],
     layout=go.Layout(
         title=dict(text='Onderwerpen',x=0.5),
