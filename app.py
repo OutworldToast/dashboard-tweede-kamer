@@ -106,7 +106,7 @@ fig_corr = go.Figure(
         z=corr,
         x= parties,
         y = parties,
-        colorscale='tealrose'
+        colorscale='RdBu'
         )
     ),
     layout = go.Layout(
