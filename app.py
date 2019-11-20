@@ -40,13 +40,13 @@ for t in topics:
     pvotes.append([parties[0],t,'against',0])
 
 #topic distribution
-tdist=pd.DataFrame(tdist,columns=['topic','adopted','rejected'])
+tdist=pd.DataFrame(tdist,columns=['topic','aangenomen','verworpen'])
 tdist=tdist.groupby('topic').sum().reset_index()
 
 fig_td=go.Figure(
     data=[
-        go.Bar(name='adopted', x=tdist['topic'], y=tdist['adopted'],base=0,marker_color='#87CE70'),
-        go.Bar(name='rejected', x=tdist['topic'], y=-tdist['rejected'],base=0,marker_color='#FFCC80')
+        go.Bar(name='aangenomen', x=tdist['topic'], y=tdist['aangenomen'],base=0,marker_color='#87CE70'),
+        go.Bar(name='verworpen', x=tdist['topic'], y=-tdist['verworpen'],base=0,marker_color='#FFCC80')
     ],
     layout=go.Layout(
         title=dict(text='Onderwerpen',x=0.5),
