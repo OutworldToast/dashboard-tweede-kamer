@@ -173,7 +173,7 @@ app.layout = html.Div(children=[
     
     html.Div([
         dcc.Graph(id='fig_corr', figure=fig_corr)],
-        style={'width':'47%','marginTop':10,'marginLeft':'10px', 'marginRight':'2%','display':'inline-block','vertical-align':'top'}),
+        style={'width':'47%','marginTop':10,'marginLeft':'2%', 'marginRight':'2%','display':'inline-block','vertical-align':'top'}),
 
     html.Div([
         dcc.Dropdown(
