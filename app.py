@@ -31,13 +31,13 @@ for i in range(data.shape[0]):
     for p in parties:
         v=data.iloc[i][p]
         if v==1:
-            pvotes.append([p,t,'voor',1])
+            pvotes.append([p,t,'support',1])
         else:
-            pvotes.append([p,t,'tegen',1])
+            pvotes.append([p,t,'against',1])
 
 for t in topics:
-    pvotes.append([parties[0],t,'voor',0])
-    pvotes.append([parties[0],t,'tegen',0])
+    pvotes.append([parties[0],t,'support',0])
+    pvotes.append([parties[0],t,'against',0])
 
 #topic distribution
 tdist=pd.DataFrame(tdist,columns=['topic','adopted','rejected'])
@@ -49,9 +49,9 @@ fig_td=go.Figure(
         go.Bar(name='rejected', x=tdist['topic'], y=-tdist['rejected'],base=0,marker_color='#FFCC80')
     ],
     layout=go.Layout(
-        title=dict(text='Onderwerpen',x=0.5),
+        title=dict(text='Topic distribution',x=0.5),
         xaxis=dict(),
-        yaxis=dict(title='aantal moties',gridcolor='#EEEEEE',zerolinecolor='#EEEEEE',tickformat='d'),
+        yaxis=dict(title='number of motions',gridcolor='#EEEEEE',zerolinecolor='#EEEEEE',tickformat='d'),
         bargap=0.5,
         barmode='stack',
         plot_bgcolor='#FFFFFF'
@@ -69,7 +69,7 @@ for p in propose.index:
 fig_pro=go.Figure(
     data=traces,
     layout=go.Layout(
-        title=dict(text='Onderwerpverdeling per partij',x=0.5),
+        title=dict(text='Topic distribution of proposals of parties',x=0.5),
         polar=dict(radialaxis=dict(range=[0,2.1],gridcolor='#C6C6C6',tickformat='d'),
                     angularaxis=dict(gridcolor='#C6C6C6'),bgcolor='#FFFFFF'),
         height=487
@@ -86,8 +86,8 @@ for t in topics:
             go.Bar(y=pvotes.columns, x=pvotes.loc[t,'support'].values, name='in favour of',orientation='h',marker_color='#A6C4FE'),
             go.Bar(y=pvotes.columns, x=pvotes.loc[t,'against'].values, name='against', orientation='h',marker_color='#DDDDDD')],
         layout=go.Layout(
-            title=dict(text='Stemresultaat over '+ str(t)+' topic',x=0.5),
-            xaxis=dict(title='aantal moties',tickformat='d'),
+            title=dict(text='Voting result regarding '+ str(t)+' topic',x=0.5),
+            xaxis=dict(title='number of motions',tickformat='d'),
             yaxis=dict(),
             #bargap=0.5,
             barmode='stack',
@@ -110,7 +110,7 @@ fig_corr = go.Figure(
         )
     ),
     layout = go.Layout(
-        title=dict(text = 'Correlatie tussen partijen',x=0.5),
+        title=dict(text = 'Correlation analysis between parties',x=0.5),
     )
 )
 
@@ -147,7 +147,7 @@ fig_ps=go.Figure(
     data=[
         go.Bar(x=ps_x, y=ps_y,marker_color='#82CDBD')],
     layout=go.Layout(
-        title=dict(text='Aantal moties per partij ',x=0.5),
+        title=dict(text='Number of proposals per party',x=0.5),
         yaxis=dict(gridcolor='#EEEEEE',zerolinecolor='#EEEEEE',tickformat='d',dtick=200),
         plot_bgcolor='#FFFFFF',
         bargap=0.6,
