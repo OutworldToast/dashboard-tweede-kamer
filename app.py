@@ -51,7 +51,7 @@ fig_td=go.Figure(
     layout=go.Layout(
         title=dict(text='Onderwerpen',x=0.5),
         xaxis=dict(),
-        yaxis=dict(title='number of motions',gridcolor='#EEEEEE',zerolinecolor='#EEEEEE',tickformat='d'),
+        yaxis=dict(title='aantal moties',gridcolor='#EEEEEE',zerolinecolor='#EEEEEE',tickformat='d'),
         bargap=0.5,
         barmode='stack',
         plot_bgcolor='#FFFFFF'
@@ -83,11 +83,11 @@ fig_PVs={}
 for t in topics:
     fig_PVs[t]=go.Figure(
         data=[
-            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'support'].values, name='in favour of',orientation='h',marker_color='#A6C4FE'),
-            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'against'].values, name='against', orientation='h',marker_color='#DDDDDD')],
+            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'support'].values, name='voor',orientation='h',marker_color='#A6C4FE'),
+            go.Bar(y=pvotes.columns, x=pvotes.loc[t,'against'].values, name='tegen', orientation='h',marker_color='#DDDDDD')],
         layout=go.Layout(
             title=dict(text='Stemuitslag aangaande '+ str(t)+' onderwerp',x=0.5),
-            xaxis=dict(title='number of motions',tickformat='d'),
+            xaxis=dict(title='aantal moties',tickformat='d'),
             yaxis=dict(),
             #bargap=0.5,
             barmode='stack',
